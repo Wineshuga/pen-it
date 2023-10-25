@@ -40,10 +40,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_25_131430) do
     t.integer "likes_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "author_id"
-    t.bigint "author_id_id", null: false
+    t.bigint "author_id", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
-    t.index ["author_id_id"], name: "index_posts_on_author_id_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,5 +57,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_25_131430) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
-  add_foreign_key "posts", "users", column: "author_id_id"
+  add_foreign_key "posts", "users", column: "author_id"
 end
