@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
 
   before { subject.save }
   
-  describe '#validates' do
     it 'name should be present' do
       subject.name = nil
       expect(subject).to_not_be_valid
@@ -20,9 +19,7 @@ RSpec.describe User, type: :model do
       subject.post_counter = -2
       expect(subject).to_not_be_valid
     end
- end
  
- describe '#recent_posts' do
     it 'should return last 3 posts' do
 
       user = User.create(name: 'Charles', photo: 'https://google.photos.com', bio: 'Educator in Australia')
@@ -36,5 +33,4 @@ RSpec.describe User, type: :model do
 
       expect(recent_posts.length).to eq(3)
     end
-  end
-end
+\end
