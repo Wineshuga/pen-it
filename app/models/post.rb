@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
 
 
-  
+
   def recent_comments
     comments.order(created_at: :desc).limit(5)
   end
