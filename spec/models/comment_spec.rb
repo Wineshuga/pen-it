@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  let(:user) { create(:user) }
-  let(:post) { create(:post) }
-  let(:comment) { create(:comment, user:, post:) }
+  let(:user) { User.new(name: 'Tom', photo: 'tom.jpg', bio: 'Tom\'s bio', posts_counter: 0) }
+  let(:post) { Post.new(author: user, title: 'My first post', text: 'post', comments_counter: 0, likes_counter: 0) }
+  let(:comment) { Comment.new(user:, post:, text: 'comments') }
+
+  before { post.save }
 
   it 'is valid with valid attributes' do
     expect(comment).to be_valid
