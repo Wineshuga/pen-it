@@ -65,7 +65,7 @@ test:
   port: 5433
   username: postgres
   password: Nweneary_96
-  database: pen_it_test
+  database: pen_it_development
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
