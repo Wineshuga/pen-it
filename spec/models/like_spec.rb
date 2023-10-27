@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  let(:user) { create(:user) }
-  let(:post) { create(:post) }
-  let(:like) { create(:like, user:, post:) }
+  let(:user) { User.new(name: 'Tom', photo: 'tom.jpg', bio: 'Tom\'s bio', posts_counter: 0) }
+  let(:post) { Post.new(author: user, title: 'My first post', text: 'post', comments_counter: 0, likes_counter: 0) }
+  let(:like) { Like.new(user:, post:) }
+
+  before { post.save }
 
   it 'is valid with valid attributes' do
     expect(like).to be_valid
