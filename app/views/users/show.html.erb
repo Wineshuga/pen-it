@@ -14,7 +14,7 @@
       <%= @users.bio %>
     </section>
     <section class = "user-posts">
-      <% @users.posts.each do |post| %>
+      <% @users.recent_posts.each do |post| %>
         <div class= "post">
           <h2><%= post.title %></h2>
           <p><%= post.text %></p>
