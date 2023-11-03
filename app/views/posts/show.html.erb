@@ -9,7 +9,7 @@
       <div class = "post-body">
         <p><%=@posts.text %></p>
       </div>
-      <h4 class="comment-title"> Comments</h4>
+      <h4 class="comment-title">Comments</h4>
     <div class="comment-container">
       <%@posts.comments.each do |comment|%>
         <p><strong><%= comment.user.name%></strong>:<%= comment.text%></p>

@@ -18,7 +18,7 @@
       <%= link_to user_post_path(user_id: post.author_id, id: post.id) do%>
         <div class="post-card-container">
           <div class="post-card">
-            <h2><%= post.title %></h2>
+            <h4><%= post.title %></h4>
             <p><%= post.text %></p>
             <div class="reactions">
               <span>Comments: <%= post.comments_counter %></span>
@@ -28,7 +28,7 @@
           <h4 class="comment-title">Comments</h4>
           <div class="comment-container">
             <% post.recent_comments.each do |comment|%>
-              <span><%= comment.user.name %>: <%= comment.text%></span>
+              <span><p><%= comment.user.name %>: <%= comment.text%></p></span>
             <% end %>
           </div>
         </div>
