@@ -1,1 +1,28 @@
-<h1>Here is the details of a given user</h1>
+<section class = "user-profile">
+    <section class = "user-card">
+      <div class="user-img">
+        <img src="<%= @users.photo %>" class="user-photo">
+      </div>
+      <div class="user-info">
+        <h1><%= @users.name %></h1>
+        <h2 class="post-counter"> Number of posts: <%= @users.posts_counter%></h2>
+      </div>
+    </section>
+    
+    <section class = "user-bio">
+      <h5>Bio</h5>
+      <%= @users.bio %>
+    </section>
+    <section class = "user-posts">
+      <% @users.posts.each do |post| %>
+        <div class= "post">
+          <h2><%= post.title %></h2>
+          <p><%= post.text %></p>
+          <div>
+            <p>Comments: <%= post.comments_counter %></p>
+            <p>Likes: <%= post.likes_counter %></p>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to "See all posts", user_posts_path(user_id: @users.id), class: "all-post" %>
+</section>
