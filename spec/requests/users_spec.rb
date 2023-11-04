@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'returns the correct placeholder text' do
-      expect(response.body).to include('Here is a list of users')
+      expect(response.body).to include('Welcome to User Page')
     end
   end
 

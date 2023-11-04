@@ -13,3 +13,160 @@
  *= require_tree .
  *= require_self
  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.user-title {
+  text-align: center;
+}
+
+.user-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card {
+  display: flex;
+  margin: 20px auto 20px auto;
+  width: 80%;
+}
+
+.user-info {
+  margin: 0 10px 0 10px;
+  border: 1px solid black;
+  flex: 1;
+}
+
+.user-info h2 {
+  margin: 10px 0 10px 20px;
+  color: black;
+}
+
+.post-counter {
+  text-align: end;
+  padding-right: 10px;
+}
+
+.user-bio {
+  width: 80%;
+  margin: 10px auto;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.user-bio h2 {
+  margin-bottom: 20px;
+}
+
+.user-bio p {
+  font-size: 16px;
+}
+
+.user-photo {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+}
+
+.user-posts {
+  width: 80%;
+  padding: 0;
+  margin: 1.2rem auto 0 auto;
+}
+
+.post-card {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 0.4rem;
+}
+
+.post-card h2 {
+  margin-bottom: 10px;
+}
+
+.post-card p {
+  margin-bottom: 10px;
+}
+
+.reactions {
+  text-align: end;
+}
+
+.reactions span {
+  padding: 6px;
+  margin-right: 10px;
+}
+
+.all-post {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+
+.post-title {
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
+
+.comment-container {
+  border: 1px solid black;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-container p {
+  padding: 10px 0;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.post-body {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.post-header ul {
+  display: flex;
+}
+
+.post-header li {
+  margin-right: 10px;
+  list-style: none;
+}
+
+.comment-title {
+  margin-bottom: 0.7rem;
+}
+
+.post-card-container {
+  margin: 2rem 0 0.5rem 0;
+}
+
+.text-container {
+  display: flex;
+  align-items: center;
+}
+
+#post_title {
+  margin: 1rem auto;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#post_text,
+#comment_text {
+  margin: 0.5rem;
+  border-radius: 10px;
+  padding: 10px;
+}
