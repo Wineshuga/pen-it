@@ -105,11 +105,16 @@ To run tests, run the following command:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Mweneary Uzochukwu Winnie**
+👤 **Nweneary Uzochukwu Winnie**
 
 - GitHub: [@wineshuga](https://github.com/wineshuga)
 - Twitter: [@wineshuga](https://twitter.com/wineshuga)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/wineshuga)
+  
+👤 **Toyyib Bello Omobolaji**
+
+- GitHub: [@simpleshaikh1](https://github.com/simpleshaikh1)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/Toyyib Abayomi)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
