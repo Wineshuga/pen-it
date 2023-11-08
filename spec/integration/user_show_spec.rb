@@ -5,7 +5,9 @@ RSpec.describe 'User Show Page', type: :feature do
     @user = User.create(id: 100, name: 'Me', photo: 'img1.jpg', bio: 'A teacher', posts_counter: 1)
     @user.save
 
-    @post = Post.create(title: 'Post 1', text: 'My first post', author: @user, comments_counter: 2, likes_counter: 1)
+    @post1 = Post.create(title: 'Post 1', text: 'My first post', author: @user, comments_counter: 2, likes_counter: 1)
+    @post2 = Post.create(title: 'Post 2', text: 'My second post', author: @user, comments_counter: 2, likes_counter: 1)
+    @post3 = Post.create(title: 'Post 3', text: 'My third post', author: @user, comments_counter: 2, likes_counter: 1)
 
     visit user_path(@user)
   end
@@ -28,7 +30,9 @@ RSpec.describe 'User Show Page', type: :feature do
     end
 
     it 'renders the first 3 posts of the user' do
-      expect(page).to have_content(@post.title)
+      expect(page).to have_content(@post1.title)
+      expect(page).to have_content(@post2.title)
+      expect(page).to have_content(@post3.title)
     end
   end
 
