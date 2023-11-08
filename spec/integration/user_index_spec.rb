@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Index Page', type: :system do
+RSpec.describe 'User Index Page', type: :feature do
   before do
     @user1 = User.create(id: 100, name: 'user1', photo: 'img1.jpg', posts_counter: 5)
     @user2 = User.create(id: 200, name: 'user2', photo: 'img2.jpg', posts_counter: 3)
