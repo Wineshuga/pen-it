@@ -2,33 +2,33 @@ require 'rails_helper'
 
 RSpec.describe 'User Show Page', type: :feature do
   before do
-    @user = User.create(id: 100, name: "Me", photo: 'img1.jpg', bio: "A teacher", posts_counter: 3)
+    @user = User.create(id: 100, name: 'Me', photo: 'img1.jpg', bio: 'A teacher', posts_counter: 3)
     @user.save
-    
-    @post = @user.posts.create(title: "Post 1", text: "My first post", comments_counter: 2, likes_counter: 1)
+
+    @post = @user.posts.create(title: 'Post 1', text: 'My first post', comments_counter: 2, likes_counter: 1)
     @user.reload
 
     visit user_posts_path(@user)
   end
 
   describe 'User information' do
-    it "renders the profile picture" do
+    it 'renders the profile picture' do
       expect(page).to have_css("img[src*='#{@user.photo}']")
     end
 
-    it "renders the username" do
+    it 'renders the username' do
       expect(page).to have_content(@user.name)
     end
 
-    it "renders the number of posts" do
+    it 'renders the number of posts' do
       expect(page).to have_content("Number of posts: #{@user.posts_counter}")
     end
 
-    it "renders the post title" do
+    it 'renders the post title' do
       expect(page).to have_content(@post.title)
     end
 
-    it "renders the post body" do
+    it 'renders the post body' do
       expect(page).to have_content(@post.text)
     end
 
@@ -46,7 +46,7 @@ RSpec.describe 'User Show Page', type: :feature do
     it 'renders number of likes a post has' do
       expect(page).to have_content("Likes: #{@post.likes_counter}")
     end
-    
+
     it 'renders a button pagination' do
       visit user_posts_path(user_id: @user.id)
       expect(page).to have_css('.pagination-btn')
