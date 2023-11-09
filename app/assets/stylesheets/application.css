@@ -183,7 +183,8 @@
   width: 50%;
 }
 
-.new_user .actions, .new_user .actions > input {
+.new_user .actions,
+.new_user .actions > input {
   width: 100%;
   margin-bottom: 0.25rem;
 }
