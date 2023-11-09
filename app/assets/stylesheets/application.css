@@ -170,3 +170,31 @@
   border-radius: 10px;
   padding: 10px;
 }
+
+.forms {
+  width: 50rem;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new_user {
+  width: 50%;
+}
+
+.new_user .actions, .new_user .actions > input {
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.field {
+  margin: 0.5rem auto;
+}
+
+.field input[type='email'],
+.field input[type='password'],
+.field input[type='text'],
+.field input[type='submit'] {
+  width: 100%;
+}
