@@ -1,38 +1,35 @@
 <section class = "post-container">
     <section class = "post-header">
-      <h2><%= @posts.title %> by <%= @posts.author.name%></h2>
+      <h2><%= @post.title %> by <%= @post.author.name%></h2>
       <div>
-        <span>Comments: <%= @posts.comments_counter%></span>
-        <span>Likes: <%= @posts.likes_counter%></span>
+        <span>Comments: <%= @post.comments_counter%></span>
+        <span>Likes: <%= @post.likes_counter%></span>
       </div>
     </section>
       <div class = "post-body">
-        <p><%=@posts.text %></p>
-      </div>
-      <h4 class="comment-title">Comments</h4>
-    <div class="comment-container">
-      <%@posts.comments.each do |comment|%>
-        <p><strong><%= comment.user.name%></strong>:<%= comment.text%></p>
-      <%end%>
-    </div>
-    <div class="like-comment-container">
-      <%= form_with model: @like, url:user_post_likes_path(post_id: @posts.id) do |l| %>
-        <%= l.submit  "Like", class:"new-post-btn submit-btn"%>
-      <% end %>
-      <%= link_to "Add a comment", new_user_post_comment_path(user_id: @posts.author.id, post_id: @posts.id), class: 'new-post-btn submit-btn' %>
-      
-      <% if can? :destroy, @post %>
+        <p><%=@post.text %></p>
+        <% if can? :destroy, @post %>
         <%= form_with model: @post, url: user_post_path(@post.author, @post), method: :delete do |f| %>
           <%= f.submit "Delete Post" %>
         <% end %>
       <% end %>
-
-      <% if can? :destroy, Comment %>
-        <%= form_with model: @comment, url: user_post_comment_path(@post.      author, @post, comment), method: :delete do |f| %>
-          <%= f.submit "Delete Comment" %>
+      </div>
+      <h4 class="comment-title">Comments</h4>
+    <div class="comment-container">
+      <%@post.comments.each do |comment|%>
+        <p><strong><%= comment.user.name%></strong>:<%= comment.text%></p>
+        <% if can? :destroy, comment %>
+          <%= form_with model: @comment, url: user_post_comment_path(@post.author, @post, comment), method: :delete do |f| %>
+            <%= f.submit "Delete Comment" %>
         <% end %>
       <% end %>
-
+      <%end%>
+    </div>
+    <div class="like-comment-container">
+      <%= form_with model: @like, url:user_post_likes_path(post_id: @post.id) do |l| %>
+        <%= l.submit  "Like", class:"new-post-btn submit-btn"%>
+      <% end %>
+      
       <% if can? :create, Comment %>
         <%= link_to 'New Comment', new_user_post_comment_path(@post.author, @post) %>
       <% end %>
