@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @post = Post.find(params[:post_id])
-    @comment.user = User.find(params[:user_id])
+    @comment.user = current_user
     @comment.post_id = @post.id
 
     if @comment.save
@@ -24,9 +24,9 @@ class CommentsController < ApplicationController
     @comment.post.decrement!(:comments_counter)
     @comment.destroy!
     flash[:success] = 'Comment was deleted successfully!'
-    redirect_to user_post_path(@comment.post.author, @comment.post)
-  end  
-
+    redirect_to user_post_path(id: @comment.post_id, user_id: @comment.user_id)
+  end
+  
   private
 
   def comment_params
