@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     flash[:success] = 'Comment was deleted successfully!'
     redirect_to user_post_path(id: @comment.post_id, user_id: @comment.user_id)
   end
-  
+
   private
 
   def comment_params
