@@ -20,5 +20,21 @@
         <%= l.submit  "Like", class:"new-post-btn submit-btn"%>
       <% end %>
       <%= link_to "Add a comment", new_user_post_comment_path(user_id: @posts.author.id, post_id: @posts.id), class: 'new-post-btn submit-btn' %>
+      
+      <% if can? :destroy, @post %>
+        <%= form_with model: @post, url: user_post_path(@post.author, @post), method: :delete do |f| %>
+          <%= f.submit "Delete Post" %>
+        <% end %>
+      <% end %>
+
+      <% if can? :destroy, Comment %>
+        <%= form_with model: @comment, url: user_post_comment_path(@post.      author, @post, comment), method: :delete do |f| %>
+          <%= f.submit "Delete Comment" %>
+        <% end %>
+      <% end %>
+
+      <% if can? :create, Comment %>
+        <%= link_to 'New Comment', new_user_post_comment_path(@post.author, @post) %>
+      <% end %>
     </div>
 </section>
