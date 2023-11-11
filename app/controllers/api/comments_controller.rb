@@ -1,5 +1,5 @@
 class Api::CommentsController < Api::ApplicationController
-    def index
+  def index
     @comments = Comment.where(post_id: params[:post_id]).order(id: :asc)
     render json: @comments, status: :ok
   end
