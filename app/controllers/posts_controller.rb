@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
   end
 
   def show
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -25,6 +27,14 @@ class PostsController < ApplicationController
       flash[:alert] = 'Error: could not create a new post'
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.author.decrement!(:posts_counter)
+    @post.destroy!
+    flash[:success] = 'Post was deleted successfully!'
+    redirect_to user_posts_url
   end
 
   private

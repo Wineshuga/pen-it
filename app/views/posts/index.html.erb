@@ -13,8 +13,6 @@
     <p><%= @user.bio %></p>
   </section>
   
-  <%= link_to "Add a new post", new_user_post_path(user_id: @user.id), class: "new-post-btn post-btn"%>
-
   <section class='post-container'>
     <% @posts.each do |post| %>
       <%= link_to user_post_path(user_id: post.author_id, id: post.id) do%>
@@ -38,6 +36,9 @@
     <% end %>
   </section>
   <div>
+  <% if (can? :create, Post) && current_user.id == @user.id %>
+    <%= link_to 'Add a New Post', new_user_post_path(user_id: @user.id), class: "new-post-btn post-btn" %>
+  <% end %>
     <a class='pagination-btn' href='#'>Pagination</a>
   </div>
 </section>
