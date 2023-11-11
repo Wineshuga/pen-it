@@ -11,5 +11,4 @@ class Ability
       can :destroy, Comment, user_id: user.id
     end
   end
-
 end
